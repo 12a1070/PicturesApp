@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def favorite
+  end
+
   # GET /users/1 or /users/1.json
   def show
   end
@@ -64,6 +67,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :password_digest)
+      params.require(:user).permit(:name, :email, :password,
+                                  :password_confirmation)
     end
 end
