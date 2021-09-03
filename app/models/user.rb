@@ -4,6 +4,8 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   before_validation { email.downcase! }
   has_secure_password
-  # validates :password, presence: true, length: { minimum: 6 }
-
+  validates :password,length: { minimum: 6 }
+# テキストではvalidates :password, presence: true,length:・・・
+# とあるがバージョンが上がりhas_secure_passwordに
+# presence: trueが内包されている
 end
