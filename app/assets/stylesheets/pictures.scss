@@ -1,3 +1,32 @@
 // Place all the styles related to the pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: blue;
+}
+
+h1 {
+  background-color: white;
+  border: solid 3px;
+  padding: 5px;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  padding-bottom: 35px;
+}
+
+.caption {
+  margin: 0 auto;
+  height: 130px;
+  margin-bottom: 30px;
+  border-bottom: solid;
+}
+
+img {
+    width: 1200px;
+    max-width:100%;
+    max-height:100%;
+}
