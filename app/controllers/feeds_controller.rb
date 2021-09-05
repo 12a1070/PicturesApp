@@ -61,7 +61,7 @@ class FeedsController < ApplicationController
   end
 
   def confirm
-  @feed = Feed.new(feed_params)
+  @feed = Feed.new(feed_params).permit(:image, :image_cache)
   end
 
 
