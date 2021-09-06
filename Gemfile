@@ -52,3 +52,6 @@ gem 'bcrypt'
 gem 'rexml'
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'rails-ujs', '~> 0.1.0'

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     end
   end
 
+  root 'users#new'
   resources :contacts
   resources :pictures
   resources :sessions, only: [:new, :create, :destroy]
