@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
-
+<h1><%= @user.name %>のページ</h1>
+<p>メールアドレス: <%= @user.email %></p>
 <p>
-  <strong>Name:</strong>
-  <%= @user.name %>
+  <strong>画像:</strong>
+  <%= image_tag @user.image.url if @user.image && @user.image.url %>
 </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-
-<%= link_to 'Back', users_path %>
+<br>
+<td><%= link_to 'Edit Profile', edit_user_path(@user.id) %>
+<br><br><br>
+<%= link_to '新規投稿', new_post_path %>
+<%= link_to '投稿一覧', posts_path %>
