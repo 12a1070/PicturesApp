@@ -47,11 +47,12 @@ class PicturesController < ApplicationController
     end
   end
 
-  def confilm
+  def confirm
     @picture =current_user.pictures.build(picture_params)
     render :new if @picture.inavalid?
 
   end
+
 
   # DELETE /pictures/1 or /pictures/1.json
   def destroy
@@ -64,12 +65,21 @@ class PicturesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_picture
-      @picture = Picture.find(params[:id])
-    end
+  def set_picture
+    @picture = Picture.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def picture_params
-      params.require(:picture).permit(:title, :content, :image, :image_cache)
+  # Only allow a list of trusted parameters through.
+  def picture_params
+    params.require(:picture).permit(:title, :content, :image, :image_cache)
+  end
+
+  def ensure_correct_user
+  @picture = Picture.find_by(id:params[:id])
+    if @post.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/pictures/index")
     end
+  end
+
 end

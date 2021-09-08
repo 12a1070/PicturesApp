@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<% unless @contact.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除します', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入り登録します', favorites_path(contact_id: @contact.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @contact.name %>

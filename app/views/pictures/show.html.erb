@@ -12,12 +12,12 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @picture.image %>
+  <%= image_tag @picture.image.url if @picture.image && @picture.image.url %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @picture.user %>
+  <%= @picture.user.name %>
 </p>
 
 <% unless @picture.user_id == current_user.id %>
