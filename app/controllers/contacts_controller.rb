@@ -34,6 +34,11 @@ class ContactsController < ApplicationController
     end
   end
 
+  def confirm
+    @contact = current_user.contacts.build(contact_params)
+    render :new if @contact.invalid?
+  end
+
   # PATCH/PUT /contacts/1 or /contacts/1.json
   def update
     respond_to do |format|
