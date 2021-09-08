@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   root 'users#new'
+  resources :posts
   resources :contacts
   resources :pictures
   resources :sessions, only: [:new, :create, :destroy]
