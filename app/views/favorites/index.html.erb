@@ -3,22 +3,24 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Content</th>
-      <th>Image</th>
+      <th>Post User</th>
+      <th>Post Content</th>
+      <th>Post Image</th>
       <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% if @favorite_list.present? %>
-      <% @favorite_list.each do |favorite_list| %>
+      <% @favorite_list.each do |favorite| %>
         <tr>
-          <td><%= favorite_list.picture.user.name %></td>
-          <td><%= favorite_list.picture.content %></td>
-          <td><%= image_tag favorite_list.picture.image.url if favorite_list.picture.image.url.present? %></td>
+          <td><%= favorite.picture.user.name %></td>
+          <td><%= favorite.picture.content %></td>
+          <td><%= image_tag favorite.picture.image.url if favorite.picture.image.url.present? %></td>
+          <td><%= link_to 'Show', favorite.picture %>
         </tr>
       <% end %>
+      <p> No Favorites Posts yet!</p>
     <% end %>
   </tbody>
 </table>
